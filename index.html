@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <script src="app.js" defer></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Lista para hacer</h1>
+        <div class="container-texto-boton">
+            <div class="container-input">
+                <input type="text" id="texto" placeholder="Escribe aqui tu tarea" spellcheck="false" />
+            </div>
+            <input type="button" value="Enviar Tarea" class="boton-input" />
+        </div>
+        <div class="container-listas">
+            <div class="container-tareasHacer">
+                <h2>Tareas</h2>
+                <ul id="tareas"></ul>
+            </div>
+            <div class="container-terminado">
+                <h2>Tareas Terminadas</h2>
+                <ul id="terminado"></ul>
+            </div>
+        </div>
+    </body>
+</html>
