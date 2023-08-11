@@ -1,6 +1,7 @@
 const boton = document.querySelector('.boton-input')
 const ul = document.getElementById('tareas')
 const textoInput = document.getElementById('texto')
+const taskArray = []
 
 function crearTarea() {
     let texto = document.getElementById('texto').value
@@ -21,7 +22,11 @@ function crearTarea() {
     div.appendChild(botonEliminar)
     div.appendChild(botonDone)
 
-    p.innerText = texto
+    taskArray.push(texto)
+
+    for (i = 0; i < taskArray.length; i++) {
+        p.innerText = taskArray[i]
+    }
 
     // dando un atributo a li para el disenio
     li.setAttribute('class', 'task')
@@ -34,6 +39,11 @@ function crearTarea() {
 
     // presionando este boton elimina la tarea
     botonEliminar.addEventListener('click', () => {
+        let indiceTask
+        for (i = 0; i < taskArray.length; i++) {
+            indiceTask = taskArray.indexOf(i)
+        }
+
         p.innerText = ''
         div.removeChild(p)
         div.removeChild(botonEliminar)
@@ -66,6 +76,7 @@ function crearTarea() {
 // haciendo click al boton se puede agregar tareas
 boton.addEventListener('click', () => {
     crearTarea()
+    console.log(taskArray)
     textoInput.value = ''
 })
 
@@ -73,8 +84,11 @@ boton.addEventListener('click', () => {
 textoInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
         crearTarea()
+        console.log(taskArray)
         textoInput.value = ''
     }
 })
 
-// FALTA LOCALSTORAGE
+// agregar las tareas en un array y los imprima en la pagina: HECHO
+
+// cuando quiera eliminar, que se elimine del dom y del array
